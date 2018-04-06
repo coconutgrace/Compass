@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -14,7 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    @IBOutlet weak var Compass: UITextField!
+    
+    func compassAvail() {
+        if (CLLocationManager.headingAvailable()) {
+            Compass.text = "True"
+        }
+        else {
+            Compass.text = "False"
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
